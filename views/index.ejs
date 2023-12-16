@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Scheduler</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <section>
+        <div class="flex-item">
+            <form action="/save" method="post">
+                <input type="date" name="task_date"><br>
+                <input type="text" name="task_description"><br>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <div class="flex-item">
+            <div id="todo">
+                <form action="/check" method="post">
+                    <input type="date" name="other_date">
+                    <button type="submit">Check</button>
+                </form>
+                <div id="todays-list">
+                    <% if (locals.the_tasks) { %>
+                    <% for (var i = 0; i < (the_tasks.length - 1); i++) { %>
+                        <input type="checkbox"><p><%= the_tasks[i] %></p><br>
+                    <% }} %>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#todays-list').on('change', 'input[type="checkbox"]', function() {
+                if ($(this).is(':checked')) {
+                    $(this).attr('disabled', true);
+                    const task = $(this).next('p').text();
+                    $.post('/update', { task: task });
+                }
+            });
+        });
+    </script>
+        
+</body>
+<html>

@@ -1,0 +1,52 @@
+p {
+    display: inline;
+}
+
+input[type=text] {
+    height: 100px;
+    margin: 10px;
+    width: 150px;
+}
+
+section {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 200px;
+    margin: 50px;
+    justify-content: center;
+}
+
+.flex-item {
+    text-align: center;
+}
+
+#todays-list {
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 290px;
+    margin: 10px;
+    padding: 30px;
+    text-align: left;
+    width: 340px;
+}
+
+#reminders {
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 100px;
+    margin: 10px;
+    padding: 30px;
+    text-align: left;
+    width: 340px;
+}
+
+#holiday-window {
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 100px;
+    margin: 10px;
+    padding: 30px;
+    text-align: left;
+    width: 340px;
+}
